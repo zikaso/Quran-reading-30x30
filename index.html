@@ -4,37 +4,38 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	<script src="clipboard.min.js"></script>
 	
 	<title>Quraan-Reading-30x30</title>
 </head>
-<body>
+<body onload="check()">
 	
 <div class="container mt-5">
 
-<div class="row">
-  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+<div class="row text-justify mb-2">
+ <center> <strong>تلاوة القرأن الكريم  30x30 </strong></center>
 </div>
-
+<hr>
 
 		<div>
-				
-						<button onclick="getList()" class="btn btn-primary">اليوم</button>
-						<input  type="number"  min="0" max="31" id='day'> 
+				        <label> اليوم&nbsp;:</label>
+						&nbsp;&nbsp;
+			            <input  type="number"  min="0" max="31" id='day'> 
+						&nbsp;
+						<button onclick="getList()" class="btn btn-primary">اللائحة </button>
 						<br><br>
-
-					<div id="print" class="shadow-lg p-3 mb-5 bg-white rounded w-100">
-						<span>ختمة اليوم <span id="cueerday"></span>
-						<br>
-						<span>بسم الله و على بركة الله</sanp>
-							<div id="list"></div>
-					</div>
-
-					<button class="btn btn-success mr-50" data-clipboard-action="copy" data-clipboard-target="#print">
-						Copy
-					</button>
+					<div id="print">
+						<div class="shadow-lg p-3 mb-5 bg-white rounded w-100">
+							<span>ختمة اليوم <span id="cueerday"></span>
+							<br>
+							<span>بسم الله و على بركة الله</sanp>
+								<div id="list"></div>
+						</div>
+					<button class="btn btn-success mr-50" data-clipboard-action="copy" data-clipboard-target="#print">Copy</button>
+					<br><br>
+				</div>
+				
 				</div>
 
 </div>
@@ -43,12 +44,13 @@
 
 <script>
      var members=[' ام رباب',' هاجر قدوش','حسناء','ليلى','فاضمة','سناء اقدوش','هاجر بوسلهام','سناء البلغيثي','سعدية',' مونية',' فوزية	','هند','عزيزة منار','محمد السعيدي','إلياس','خديجة اليوسفي',' نرجس','فضائل','زكرياء','ايمان',' فاطمة ناصر',' سعاد ايت زياد','مريم','هادية','سهام','سارة','وفاء',' لمياء الكوزي','رباب','هشام كرام']
-     var days=['الاول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع','العاشر','الحادي عشر','الثاني عشر','الثالث عشر','الرابع عشر','الخامس عشر','السادس عشر','السابع عشر','الثامن عشر','التاسع عشر','العشرون','لحادي والعشرون','الثاني والعشرون','الثالث والعشرون','الرابع والعشرون','الخامس والعشرون','السادس والعشرون','السابع والعشرون','الثامن والعشرون','التاسع والعشرون','الثلاثون'];
+    
+	 var days=['الاول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع','العاشر','الحادي عشر','الثاني عشر','الثالث عشر','الرابع عشر','الخامس عشر','السادس عشر','السابع عشر','الثامن عشر','التاسع عشر','العشرون','لحادي والعشرون','الثاني والعشرون','الثالث والعشرون','الرابع والعشرون','الخامس والعشرون','السادس والعشرون','السابع والعشرون','الثامن والعشرون','التاسع والعشرون','الثلاثون'];
 		
 	 function getList(){
 		  var result=""
 	      var  day= parseInt(document.getElementById("day").value);
-
+		  document.getElementById("print").style.visibility = "visible";
 		  if(day>0 && day <31){
 			result=""
 				for (let i = 0; i < members.length; i++) {
@@ -64,6 +66,11 @@
 			  document.getElementById("cueerday").innerHTML = days[(day-1)];
 
 		  }else alert('oho !')
+		}
+		
+		function check(){
+
+		    document.getElementById("print").style.visibility = "hidden";
 		}
 var clipboard = new Clipboard('.btn');
 </script>
